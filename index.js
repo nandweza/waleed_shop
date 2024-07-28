@@ -1,4 +1,9 @@
 const express = require("express");
+const homeRoutes = require("./routes/homeRoutes");
+const productRoutes = require("./routes/productRoutes");
+const contactRoutes = require("./routes/contactRoutes");
+const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 
@@ -36,6 +41,10 @@ mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log("DB Connected Successfully!"))
   .catch((err) => console.log(err));
 
-
+app.use("/", homeRoutes);
+app.use("/products", productRoutes);
+app.use("/contact-us", contactRoutes);
+app.use("/auth", authRoutes);
+app.use("/admin", adminRoutes);
 
 module.exports = app;

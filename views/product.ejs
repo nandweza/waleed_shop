@@ -1,0 +1,202 @@
+<%- include("./partials/head.ejs") %>
+
+<body>
+	
+	<!-- Header START -->
+	<%- include("./partials/navbar.ejs") %>
+
+	<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Hero START -->
+<section>
+	<div class="container">
+		<!-- Title and breadcrumb -->
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb breadcrumb-dots pb-0 mb-0">
+				<li class="breadcrumb-item"><a href="/">Home</a></li>
+				<li class="breadcrumb-item"><a href="/products">All product</a></li>
+				<li class="breadcrumb-item"><a href="#">Cart</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+			</ol>
+		</nav>
+
+		<!-- Content START -->
+		<div class="row mt-7">
+			<!-- Images -->
+			<div class="col-md-5 mb-5 mb-md-0">
+				<div class="carousel" id="carousel-<%= product._id %>" style="width: 100%; height: auto;">
+					<% product.images.forEach((img, index) => { %>
+						<div class="card card-element-hover overflow-hidden">
+							<!-- Image -->
+							<img src="/uploads/<%= img %>" class="<%= index === 0 ? 'active' : '' %>" alt="">
+							<!-- Full screen button -->
+							<div class="carousel-controls d-flex justify-content-between position-absolute top-50 start-0 w-100">
+								<button onclick="prevImage('<%= product._id %>')" class="btn btn-dark btn-icon rounded-circle mb-0">←</button>
+								<button onclick="nextImage('<%= product._id %>')" class="btn btn-dark btn-icon rounded-circle mb-0">→</button>
+							</div>
+						</div>
+					<% }) %>
+				</div>
+			</div>
+
+			<!-- Product detail -->
+			<div class="col-md-7 ps-md-6">
+				<!-- Badge -->
+				<div class="badge text-bg-dark mb-3"><%= product.category %></div>
+
+				<!-- Title -->
+				<h1 class="h2 mb-4"><%= product.name %></h1>
+
+				<!-- Rating list -->
+				<div class="d-flex align-items-center flex-wrap mb-4">
+					<ul class="list-inline mb-0">
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+						<li class="list-inline-item me-0 heading-color fw-normal">(4.5)</li>
+					</ul>
+					<span class="text-secondary opacity-3 mx-2 mx-sm-3">|</span>
+					<a href="#" class="heading-color text-primary-hover mb-0"><%= product.reviews %> reviews</a>
+					<span class="text-secondary opacity-3 mx-2 mx-sm-3">|</span>
+					<span><%= product.sold %> sold</span>
+				</div>
+
+				<!-- Price -->
+				<h4 class="text-success mb-4">UGX<%= product.price %></h4>
+
+				<p class="mb-4"><%- product.content %></p>
+
+				<!-- Button -->
+				<div class="d-grid">
+					<a href="/contact-us" class="btn btn-primary mb-0 w-100"><i class="bi bi-phone me-2"></i>+256789422541 or hit the button to chat with us</a>
+					<p class="mb-0 mt-2 text-end small"><i class="bi bi-question-circle-fill text-primary me-2"></i>Need help? <a href="/contact-us" class="mb-0">Chat Now</a></p>
+				</div>
+
+			</div>
+		</div>
+		<!-- Content END -->
+
+	</div>
+</section>
+<!-- =======================
+Hero END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<%- include("./partials/footer.ejs") %>
+<!-- =======================
+Footer END -->
+
+<!-- Offcanvas START -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
+	<!-- Offcanvas header -->
+	<div class="offcanvas-header justify-content-between border-bottom px-3">
+		<h5 class="mb-0">Your Cart</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+
+	<!-- Offcanvas body -->
+	<div class="offcanvas-body d-flex flex-column px-3">
+		<div class="row g-3">
+			<!-- Image -->
+			<div class="col-4">
+				<img class="rounded-2 bg-light p-2" src="/images/shop/02.png" alt="avatar">
+			</div>
+			<div class="col-8">
+				<p class="heading-color fw-semibold mb-1">Round neck cotton t-shirt</p>
+				<div class="d-flex justify-content-between align-items-center">
+					<!-- Select item -->
+					<select class="form-select form-select-sm w-auto" aria-label="Default select example">
+						<option value="1">01</option>
+						<option value="2">02</option>
+						<option value="3">03</option>
+					</select>
+	
+					<a href="#" class="btn btn-sm btn-link p-0">Remove</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Button and price -->
+		<div class="mt-auto">
+			<div class="d-flex justify-content-between mb-2">
+				<span class="heading-color fw-semibold">Subtotal</span>
+				<h6 class="text-success mb-0">$103</h6>
+			</div>
+			<!-- Button -->
+			<div class="d-grid">
+				<a href="checkout.html" class="btn btn-lg btn-dark mb-0">Continue to Checkout</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Offcanvas END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Vendors -->
+<script src="/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/vendor/glightbox/js/glightbox.js"></script>
+
+<!-- Theme Functions -->
+<script src="/js/functions.js"></script>
+
+<script>
+    function prevImage(productId) {
+        const carousel = document.getElementById('carousel-' + productId);
+        const images = carousel.getElementsByTagName('img');
+        let activeIndex = -1;
+
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].classList.contains('active')) {
+                activeIndex = i;
+                break;
+            }
+        }
+
+        if (activeIndex > 0) {
+            images[activeIndex].classList.remove('active');
+            images[activeIndex - 1].classList.add('active');
+        } else {
+            images[activeIndex].classList.remove('active');
+            images[images.length - 1].classList.add('active');
+        }
+    }
+
+    function nextImage(productId) {
+        const carousel = document.getElementById('carousel-' + productId);
+        const images = carousel.getElementsByTagName('img');
+        let activeIndex = -1;
+
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].classList.contains('active')) {
+                activeIndex = i;
+                break;
+            }
+        }
+
+        if (activeIndex < images.length - 1) {
+            images[activeIndex].classList.remove('active');
+            images[activeIndex + 1].classList.add('active');
+        } else {
+            images[activeIndex].classList.remove('active');
+            images[0].classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>

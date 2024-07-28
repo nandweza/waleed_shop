@@ -1,0 +1,408 @@
+<%- include("./partials/head.ejs") %>
+
+<body>
+
+	<%- include("./partials/navbar.ejs") %>
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="pt-5 pt-xl-7">
+		<!-- Slider START -->
+		<div class="swiper overflow-hidden pt-5" data-swiper-options='{
+			"autoplay":{
+				"delay": 4000, 
+				"disableOnInteraction": false
+			},
+			"pagination":{
+				"el":".swiper-pagination",
+				"clickable":"true"
+			}}'>
+
+			<div class="swiper-wrapper">
+				<!-- Slider item -->
+				<div class="swiper-slide">
+					<div class="card overflow-hidden h-500px h-xl-750px rounded-0" style="background-image:url(/images/shop/bg/bg2.jpeg); background-position: center left; background-size: cover;">
+						<!-- Bg overlay -->
+						<div class="bg-overlay bg-dark opacity-5 d-lg-none"></div>
+						<!-- Card image overlay -->
+						<div class="card-img-overlay d-flex align-items-center"> 
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-11 col-lg-8 col-xl-5">
+										<span class="d-inline-block text-bg-dark small rounded-pill px-3 py-2 mb-4">New release</span>
+										<!-- Title -->
+										<h1 class="text-white display-6 mb-4">Lorem ipsum dolor sit amet</h1>
+	
+										<p class="text-white mb-4"> 
+											Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+											molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum 
+										</p>
+										<a class="btn btn-lg btn-outline-white icon-link icon-link-hover mb-0" href="/products">Show details<i class="bi bi-arrow-right"></i> </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slider item -->
+				<div class="swiper-slide">
+					<div class="card overflow-hidden h-500px h-xl-750px rounded-0" style="background-image:url(/images/shop/bg/02.jpg); background-position: center left; background-size: cover;">
+						<!-- Bg overlay -->
+						<div class="bg-overlay bg-dark opacity-5 d-lg-none"></div>
+						<!-- Card image overlay -->
+						<div class="card-img-overlay d-flex align-items-center"> 
+							<div class="container">
+								<div class="row">
+									<div class="col-md-11 col-lg-8 col-xl-5 ms-auto">
+	
+										<p class="fs-4 fw-normal text-white mb-3">Festival Collection <span class="text-bg-dark rounded px-3">2024</span></p>
+										<!-- Title -->
+										<h1 class="text-white display-4 mb-3">FLAT 50% OFF</h1>
+	
+										<p class="text-white mb-4"> Step into a world of quality and craftsmanship – it's time to put your best foot forward.</p>
+										<a class="btn btn-lg btn-dark icon-link icon-link-hover mb-0" href="/products">Shop Now<i class="bi bi-arrow-right"></i> </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+
+			<!-- Slider Pagination -->
+			<div class="swiper-pagination swiper-pagination-line position-absolute bottom-0 mb-3"></div>
+		</div>	
+		<!-- Slider END -->
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Product grid START -->
+<section class="pt-0 products">
+	<div class="container">
+		<!-- Title -->
+		<div class="d-sm-flex justify-content-between align-items-center mb-4">
+			<h3>What's trending now</h3>
+			<a class="icon-link icon-link-hover text-body-secondary text-primary-hover" href="/products">See all products<i class="bi bi-arrow-right"></i> </a>
+		</div>
+
+		<div class="row g-4 g-sm-5">
+			<!-- Adv -->
+			<div class="col-lg-8 col-xl-6">
+				<div class="card p-0 h-100" style="background-image:url(/images/shop/bg/03.jpg); background-position: center left; background-size: cover;">
+					<div class="card-body p-5 mb-8">
+						<span class="bg-dark text-white rounded fw-semibold small px-3 py-2">New Arrival</span>
+						<h4 class="text-white my-4">Powerful performance. Versatile design.</h4>
+						<a class="btn btn-lg btn-outline-white icon-link icon-link-hover mb-0" href="/products">Shop now<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Product item -->
+			<% featuredProducts.forEach(product => { %>
+			<div class="col-sm-6 col-lg-4 col-xl-3">
+				<div class="card border bg-transparent overflow-hidden p-0 h-100">
+					<!-- Overlay -->
+					<div class="position-absolute top-0 start-0 p-3">
+						<span class="badge text-bg-danger">30% off</span>
+					</div>
+
+					<!-- Image -->
+					<div class="card-header bg-light rounded m-2">
+						<img src="/uploads/<%= product.images[0] %>" alt="">
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body pb-0">
+						<!-- Title -->
+						<h6 class="card-title"><a href="/products/<%= product._id %>" class="stretched-link"><%= product.name %></a></h6>
+						<!-- Badge and price -->
+						<ul class="list-inline">
+							<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+							<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+							<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+							<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+							<li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+						</ul>
+					</div>
+
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between align-items-center pt-0">
+						<p class="fw-bold text-success mb-0">UGX<%= product.price %></p>
+						<small class="text-decoration-line-through">UGX<%= product.reducedPrice %></small>
+						<a href="#" class="btn btn-dark mb-0 z-index-2"><i class="bi bi-cart"></i></a>
+					</div>
+				</div>
+			</div>
+			<% }) %>
+
+		</div>
+	</div>
+</section>
+ <!-- =======================
+Product grid END -->
+
+<!-- =======================
+Features START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row g-4 g-sm-6">
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<div class="icon-lg rounded-circle bg-info bg-opacity-10 text-info mb-4">
+						<i class="bi bi-lightning-charge-fill fa-lg"></i>
+					</div>
+					<h6 class="mb-3">Fast and reliable delivery</h6>
+					<p class="mb-0">Ensure timely and dependable delivery services to meet customer expectations.</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<div class="icon-lg rounded-circle bg-warning bg-opacity-15 text-warning mb-4">
+						<i class="bi bi-radar fa-lg"></i>
+					</div>
+					<h6 class="mb-3">Package tracking</h6>
+					<p class="mb-0">Offer real-time tracking information, so customers can monitor the status of their shipments.</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<div class="icon-lg rounded-circle bg-danger bg-opacity-10 text-danger mb-4">
+						<i class="bi bi-fire fa-lg"></i>
+					</div>
+					<h6 class="mb-3">Returns and exchanges</h6>
+					<p class="mb-0">Clearly outline your return and exchange policy, making it easy for customers to initiate returns.</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<div class="icon-lg rounded-circle bg-primary bg-opacity-10 text-primary mb-4">
+						<i class="bi bi-headset fa-lg"></i>
+					</div>
+					<h6 class="mb-3">Customer support</h6>
+					<p class="mb-0">Provide responsive customer support to address shipping-related queries and issues.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Features END -->
+
+<!-- =======================
+Product START -->
+<section class="bg-parallax position-relative" style="background:url(/images/shop/bg/04.jpg) no-repeat; background-size:cover; background-position:center;">
+	<!-- Bg overlay -->
+	<div class="bg-overlay bg-dark opacity-6"></div>
+
+	<div class="container position-relative z-index-2">
+		<div class="row">
+			<div class="col-lg-8 col-xl-5 mb-5 mb-xl-0">
+				<span class="text-primary display-4">20% off</span>
+				<h3 class="text-white my-4">Enhance your style with our latest collections</h3>
+				<p class="text-white">Discover the perfect fusion of modern trends and timeless classics, meticulously curated to complement your unique taste.</p>
+
+				<!-- Slider arrow -->
+				<div class="d-flex gap-3 position-relative mt-5 mt-md-6">
+					<a href="#" class="btn btn-outline-white btn-icon rounded-circle mb-0 swiper-button-prev"><i class="bi bi-arrow-left"></i></a>
+					<a href="#" class="btn btn-outline-white btn-icon rounded-circle mb-0 swiper-button-next"><i class="bi bi-arrow-right"></i></a>
+				</div>	
+			</div>
+
+			<div class="col-xl-7 col-xxl-6 ms-auto">
+
+				<!-- Slider START -->
+				<div class="swiper" data-swiper-options='{
+					"spaceBetween": 30, 
+					"grabCursor": true,
+					"speed":"1000",
+					"navigation":{
+						"nextEl":".swiper-button-next",
+						"prevEl":".swiper-button-prev"
+					},
+					"autoplay":{
+						"delay": 5000,
+						"disableOnInteraction": true,
+						"pauseOnMouseEnter": true
+					},
+					"breakpoints": {
+						"576": {"slidesPerView": 1}, 
+						"768": {"slidesPerView": 2}, 
+						"992": {"slidesPerView": 3},
+						"1200": {"slidesPerView": 2}
+					}}'>
+
+					<div class="swiper-wrapper">
+						<!-- Slider items -->
+						<% latestProducts.forEach(product => { %>
+						<div class="swiper-slide">
+							<div class="card border overflow-hidden p-0 h-100">
+								<!-- Wishlist -->
+								<div class="position-absolute start-0 top-0 d-flex align-items-start w-100 z-index-2 p-3">
+									<div class="badge text-bg-dark"><i class="fas fa-star text-warning me-1"></i>4.5</div>
+									<a href="#" class="btn btn-light btn-round border mb-0 ms-auto"><i class="bi bi-heart"></i></a>
+								</div>
+	
+								<!-- Image -->
+								<div class="card-header bg-transparent pb-0">
+									<img src="/uploads/<%= product.images[0] %>" alt="">
+								</div>
+			
+								<!-- Card body -->
+								<div class="card-body pt-0">
+									<h6 class="card-title"><a href="/products/<%= product._id %>" class="stretched-link"><%= product.name %></a></h6>
+									<p class="mb-0"><%- product.content %> </p>
+								</div>
+			
+								<!-- Card footer -->
+								<div class="card-footer bg-transparent d-flex justify-content-between align-items-center pt-0">
+									<div class="d-flex align-items-center gap-2 justify-content-center">
+										<p class="fw-bold text-success mb-0">UGX<%= product.price %></p>
+										<!-- <small class="text-decoration-line-through">UGX<%= product.reducedPrice %></small> -->
+									</div>
+									<a href="/products/<%= product._id %>" class="btn btn-dark mb-0 z-index-2">Buy now</a>
+								</div>
+							</div>
+						</div>
+						<% }) %>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</section> 
+<!-- =======================
+Product END -->
+
+<!-- =======================
+Brands START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-5 col-xl-4 mb-5 mb-lg-0 pt-4">
+				<h2 class="mb-4">Our Impressive Product Collections</h2>
+				<a class="icon-link icon-link-hover heading-color text-primary-hover" href="#">Explore all brands<i class="bi bi-arrow-right"></i> </a>
+			</div>
+
+			<div class="col-lg-7 text-center ms-auto">
+				<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 g-md-6">
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/01.svg" class="grayscale" alt="client-img"></a>
+					</div>
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/02.svg" class="grayscale" alt="client-img"></a>
+					</div>
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/03.svg" class="grayscale" alt="client-img"></a>
+					</div>
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/04.svg" class="grayscale" alt="client-img"></a>
+					</div>
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/05.svg" class="grayscale" alt="client-img"></a>
+					</div>
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/06.svg" class="grayscale" alt="client-img"></a>
+					</div>
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/07.svg" class="grayscale" alt="client-img"></a>
+					</div>
+					<!-- Image -->
+					<div class="col">
+						<a href="#"><img src="/images/client/08.svg" class="grayscale" alt="client-img"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Brands END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<%- include("./partials/footer.ejs") %>
+
+<!-- Offcanvas START -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
+	<!-- Offcanvas header -->
+	<div class="offcanvas-header justify-content-between border-bottom px-3">
+		<h5 class="mb-0">Your Cart</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+
+	<!-- Offcanvas body -->
+	<div class="offcanvas-body d-flex flex-column px-3">
+		<div class="row g-3">
+			<!-- Image -->
+			<div class="col-4">
+				<img class="rounded-2 bg-light p-2" src="/images/shop/02.png" alt="avatar">
+			</div>
+			<div class="col-8">
+				<p class="heading-color fw-semibold mb-1">Round neck cotton t-shirt</p>
+				<div class="d-flex justify-content-between align-items-center">
+					<!-- Select item -->
+					<select class="form-select form-select-sm w-auto" aria-label="Default select example">
+						<option value="1">01</option>
+						<option value="2">02</option>
+						<option value="3">03</option>
+					</select>
+	
+					<a href="#" class="btn btn-sm btn-link p-0">Remove</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Button and price -->
+		<div class="mt-auto">
+			<div class="d-flex justify-content-between mb-2">
+				<span class="heading-color fw-semibold">Subtotal</span>
+				<h6 class="text-success mb-0">$103</h6>
+			</div>
+			<!-- Button -->
+			<div class="d-grid">
+				<a href="checkout.html" class="btn btn-lg btn-dark mb-0">Continue to Checkout</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Offcanvas END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+<script src="/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/vendor/jarallax/jarallax.min.js"></script>
+<script src="/vendor/jarallax/jarallax-video.min.js"></script>
+<script src="/vendor/sticky-js/sticky.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="/js/functions.js"></script>
+
+</body>
+</html>

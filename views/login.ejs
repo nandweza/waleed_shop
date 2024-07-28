@@ -1,0 +1,54 @@
+<%- include("./partials/head.ejs") %>
+
+<body>
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+		<div class="row g-0">
+
+			<!-- Right -->
+			<div class="col-sm-10 col-lg-5 d-flex m-auto vh-100">
+				<div class="row w-100 m-auto">
+					<div class="col-sm-10 my-5 m-auto">
+
+						<!-- <a href="/"><img src="" class="h-50px mb-4" alt="logo"></a> -->
+                         
+
+						<h2 class="mb-0">Welcome back</h2>
+						<p class="mb-0">Welcome back, please enter your detail</p>
+					
+						<!-- Form START -->
+						<form action="/auth/login" method="post">
+							<!-- Email -->
+							<div class="input-floating-label form-floating mb-4">
+								<input type="name" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
+								<label for="floatingInput">Username</label>
+							</div>
+
+							<!-- Password -->
+							<div class="input-floating-label form-floating mb-4 position-relative">
+								<input type="password" class="form-control fakepassword pe-6" id="psw-input" name="password" placeholder="Enter your password">
+								<label for="floatingInput">Password</label>
+								<span class="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
+									<i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2"></i>
+								</span>
+							</div>
+
+							<!-- Button -->
+							<div class="align-items-center mt-0">
+								<div class="d-grid">
+									<button class="btn btn-dark mb-0" type="submit">Login</button>
+								</div>
+							</div>
+						</form>
+						<!-- Form END -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+</body>
+</html>

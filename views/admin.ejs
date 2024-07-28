@@ -1,0 +1,87 @@
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/admin-navbar.ejs') %>
+
+    <main class="admin">
+        <div class="dashboard pt-5 my-dashboard">
+            <div class="upper-grid fw-bold text-center">
+                <div class="upper-card cards">
+                    <div class="info pt-5">
+                        <figure class="text-primary mb-0">
+                            <i class="fa-sharp fa-solid fa-award icons"></i>
+                        </figure>
+                        <p><strong>7</strong> Lorem</p>
+                    </div>
+                </div>
+                <div class="upper-card cards">
+                    <div class="info pt-5">
+                        <figure class="text-primary mb-0">
+                            <i class="fa-solid fa-vector-square icons"></i>
+                        </figure>
+                        <p><strong>6</strong> Lorem</p>
+                    </div>
+                </div>
+                <div class="upper-card cards">
+                    <div class="info pt-5">
+                        <figure class="text-primary mb-0">
+                            <i class="fa-solid fa-list icons"></i>
+                        </figure>
+                        <p><strong>5</strong> Lorem</p>
+                    </div>
+                </div>
+                <div class="upper-card cards">
+                    <div class="info pt-5">
+                        <span id="current-time"></span>
+                        <br>
+                        <div class="info-text">
+                            <span id="current-date"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-grid mt-5">
+                <div class="column1 lower-card cards"></div>
+                <div class="column2 lower-card cards">
+                    <div class="info pt-3 pb-2">
+                        <span class="links">
+                            <figure class="text-primary mb-0">
+                                <i class="fa-solid fa-link icons"></i>
+                            </figure>
+                            <h5>Links & Shortcuts</h5>
+                        </span>
+                    </div>
+                    <hr>
+                    <div class="card-body p-4">
+                        <span>
+                            <a href="/" target="_blank">Home <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </span>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to update the time and date on the page
+        function updateDateTime() {
+            const currentTimeElement = document.getElementById('current-time');
+            const currentDateElement = document.getElementById('current-date');
+          
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            const dateString = now.toDateString();
+    
+            currentTimeElement.textContent = timeString;
+            currentDateElement.textContent = dateString;
+        }
+    
+        // Update the time and date immediately
+        updateDateTime();
+    
+        // Update the time and date every second
+        setInterval(updateDateTime, 1000);
+    </script>
+      
+</body>
