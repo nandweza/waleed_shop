@@ -24,9 +24,9 @@ Main Banner START -->
 			<div class="swiper-wrapper">
 				<!-- Slider item -->
 				<div class="swiper-slide">
-					<div class="card overflow-hidden h-500px h-xl-750px rounded-0" style="background-image:url(/images/shop/bg/bg2.jpeg); background-position: center left; background-size: cover;">
+					<div class="card overflow-hidden h-500px h-xl-750px rounded-0" style="background-image:url(/images/shop/bg/bg6.jpg); background-position: center left; background-size: cover;">
 						<!-- Bg overlay -->
-						<div class="bg-overlay bg-dark opacity-5 d-lg-none"></div>
+						<div class="bg-overlay bg-linear-overlay"></div>
 						<!-- Card image overlay -->
 						<div class="card-img-overlay d-flex align-items-center"> 
 							<div class="container">
@@ -34,11 +34,11 @@ Main Banner START -->
 									<div class="col-sm-11 col-lg-8 col-xl-5">
 										<span class="d-inline-block text-bg-dark small rounded-pill px-3 py-2 mb-4">New release</span>
 										<!-- Title -->
-										<h1 class="text-white display-6 mb-4">Lorem ipsum dolor sit amet</h1>
+										<h1 class="text-white display-6 mb-4">Shop Smart, Save Big: Your Favorite Items on Sale!</h1>
 	
 										<p class="text-white mb-4"> 
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-											molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum 
+											Discover amazing deals on clothing, shoes, glasses, and accessories for both men and women. 
+											Shop now for great discounts on all your fashion favorites!
 										</p>
 										<a class="btn btn-lg btn-outline-white icon-link icon-link-hover mb-0" href="/products">Show details<i class="bi bi-arrow-right"></i> </a>
 									</div>
@@ -52,7 +52,7 @@ Main Banner START -->
 				<div class="swiper-slide">
 					<div class="card overflow-hidden h-500px h-xl-750px rounded-0" style="background-image:url(/images/shop/bg/02.jpg); background-position: center left; background-size: cover;">
 						<!-- Bg overlay -->
-						<div class="bg-overlay bg-dark opacity-5 d-lg-none"></div>
+						<div class="bg-overlay bg-linear-overlay"></div>
 						<!-- Card image overlay -->
 						<div class="card-img-overlay d-flex align-items-center"> 
 							<div class="container">
@@ -135,7 +135,7 @@ Product grid START -->
 					<div class="card-footer bg-transparent d-flex justify-content-between align-items-center pt-0">
 						<p class="fw-bold text-success mb-0">UGX<%= product.price %></p>
 						<small class="text-decoration-line-through">UGX<%= product.reducedPrice %></small>
-						<a href="#" class="btn btn-dark mb-0 z-index-2"><i class="bi bi-cart"></i></a>
+						<a href="/products/<%= product._id %>" class="btn btn-dark mb-0 z-index-2"><i class="bi bi-cart"></i></a>
 					</div>
 				</div>
 			</div>
@@ -300,36 +300,36 @@ Brands START -->
 				<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 g-md-6">
 					<!-- Image -->
 					<div class="col">
-						<a href="#"><img src="/images/client/01.svg" class="grayscale" alt="client-img"></a>
+						<a href="#"><img src="/images/client/gucci.png" class="grayscale" alt="client-img"></a>
 					</div>
 					<!-- Image -->
 					<div class="col">
-						<a href="#"><img src="/images/client/02.svg" class="grayscale" alt="client-img"></a>
+						<a href="#"><img src="/images/client/lv.png" class="grayscale" alt="client-img"></a>
 					</div>
 					<!-- Image -->
 					<div class="col">
-						<a href="#"><img src="/images/client/03.svg" class="grayscale" alt="client-img"></a>
+						<a href="#"><img src="/images/client/dior.png" class="grayscale" alt="client-img"></a>
 					</div>
 					<!-- Image -->
 					<div class="col">
-						<a href="#"><img src="/images/client/04.svg" class="grayscale" alt="client-img"></a>
+						<a href="#"><img src="/images/client/nike.png" class="grayscale" alt="client-img"></a>
 					</div>
 					<!-- Image -->
-					<div class="col">
+					<!-- <div class="col">
 						<a href="#"><img src="/images/client/05.svg" class="grayscale" alt="client-img"></a>
-					</div>
+					</div> -->
 					<!-- Image -->
-					<div class="col">
+					<!-- <div class="col">
 						<a href="#"><img src="/images/client/06.svg" class="grayscale" alt="client-img"></a>
-					</div>
+					</div> -->
 					<!-- Image -->
-					<div class="col">
+					<!-- <div class="col">
 						<a href="#"><img src="/images/client/07.svg" class="grayscale" alt="client-img"></a>
-					</div>
+					</div> -->
 					<!-- Image -->
-					<div class="col">
+					<!-- <div class="col">
 						<a href="#"><img src="/images/client/08.svg" class="grayscale" alt="client-img"></a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -352,17 +352,17 @@ Brands END -->
 	</div>
 
 	<!-- Offcanvas body -->
-	<div class="offcanvas-body d-flex flex-column px-3">
-		<div class="row g-3">
+	<!-- <div class="offcanvas-body d-flex flex-column px-3">
+		<div class="row g-3"> -->
 			<!-- Image -->
-			<div class="col-4">
+			<!-- <div class="col-4">
 				<img class="rounded-2 bg-light p-2" src="/images/shop/02.png" alt="avatar">
 			</div>
 			<div class="col-8">
 				<p class="heading-color fw-semibold mb-1">Round neck cotton t-shirt</p>
-				<div class="d-flex justify-content-between align-items-center">
+				<div class="d-flex justify-content-between align-items-center"> -->
 					<!-- Select item -->
-					<select class="form-select form-select-sm w-auto" aria-label="Default select example">
+					<!-- <select class="form-select form-select-sm w-auto" aria-label="Default select example">
 						<option value="1">01</option>
 						<option value="2">02</option>
 						<option value="3">03</option>
@@ -371,20 +371,20 @@ Brands END -->
 					<a href="#" class="btn btn-sm btn-link p-0">Remove</a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Button and price -->
-		<div class="mt-auto">
+		<!-- <div class="mt-auto">
 			<div class="d-flex justify-content-between mb-2">
 				<span class="heading-color fw-semibold">Subtotal</span>
 				<h6 class="text-success mb-0">$103</h6>
-			</div>
+			</div> -->
 			<!-- Button -->
-			<div class="d-grid">
+			<!-- <div class="d-grid">
 				<a href="checkout.html" class="btn btn-lg btn-dark mb-0">Continue to Checkout</a>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 <!-- Offcanvas END -->
 
