@@ -54,7 +54,7 @@ exports.postProduct = async (req, res) => {
         const files = req.files;
         const images = files ? files.map(file => file.filename) : [];
 
-        if (!name || !content) {
+        if (!name) {
             return res.status(403).json({ message: "Name and content are required" });
         }
 
