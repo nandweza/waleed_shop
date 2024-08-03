@@ -15,4 +15,10 @@ router
     .get(productController.getProductById)
     .post(productController.deleteProduct);
 
+// updated routes
+router
+    .route("/update/:productId")
+    .get(productController.getUpdatePage)
+    .post(uploads.array('img', 20), productController.updateProduct);
+
 module.exports = router;

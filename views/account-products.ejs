@@ -89,19 +89,21 @@ Content START -->
                                         </div>
                                     </td>
                                     <td><%= product.name %></td>
-                                    <td><%- product.content.substring(0, 30) + "..." %></td>
-                                    <td><%= product.price %></td>
+                                    <td><%- product.content.substring(0, 10) + "..." %></td>
+                                    <td>UGX<%= product.price %></td>
                                     <td><%= product.stock %></td>
                                     <td><%= product.category %></td>
                                     <td>
-                                        <!-- <a href="/products/<%= product._id %>" style="display: inline;">
+                                        <a href="/products/update/<%= product._id %>" style="display: inline;">
                                             <button class="btn btn-sm btn-dark me-1 mb-1 mb-md-0">
-                                                <i class="bi bi-eye"></i>
+                                                <i class="bi bi-pencil-square"></i>
                                             </button>
-                                        </a> -->
+                                        </a>
                                         <form action="/products/<%= product._id %>" method="post" style="display:inline;">
                                             <input type="hidden" name="deleteBtn" value="<%= product._id %>">
-                                            <button class="btn btn-sm btn-danger me-1 mb-1 mb-md-0" type="submit" title="DELETE"><i class="bi bi-trash"></i></button>
+                                            <button class="btn btn-sm btn-danger me-1 mb-1 mb-md-0" type="submit" title="DELETE">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

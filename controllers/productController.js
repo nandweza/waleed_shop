@@ -67,6 +67,77 @@ exports.postProduct = async (req, res) => {
     }
 };
 
+//update a product
+exports.getUpdatePage = async (req, res) => {
+    try {
+        const { productId } = req.params;
+        const getData = await Product.findOne({ _id: productId });
+        res.render('updateProduct', { product: getData });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Something went wrong" });
+    }
+}
+
+exports.updateProduct = async (req, res) => {
+    try {
+        const { productId } = req.params;
+        const { name, content, price, reducedPrice, stock, sold, reviews, category } = req.body;
+        const files = req.files;
+        const newImages = files ? files.map(file => file.filename) : [];
+
+        // Validate required fields
+        if (!name) {
+            return res.status(400).json({ message: "Name is required" });
+        }
+
+        // Fetch the current product data to get the existing image file names
+        const product = await Product.findById(productId);
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+
+        const oldImages = product.images;
+
+        // If new images are provided, delete the old images
+        if (newImages.length > 0 && oldImages.length > 0) {
+            oldImages.forEach(oldImage => {
+                const oldImagePath = path.join(__dirname, '../public/uploads', oldImage);
+                if (fs.existsSync(oldImagePath)) {
+                    fs.unlink(oldImagePath, (err) => {
+                        if (err) {
+                            console.log('Failed to delete old image:', err);
+                        } else {
+                            console.log('Old image deleted successfully');
+                        }
+                    });
+                } else {
+                    console.log('Old image not found:', oldImage);
+                }
+            });
+        }
+
+        // Update the product data
+        product.name = name;
+        product.content = content;
+        product.price = price;
+        product.reducedPrice = reducedPrice;
+        product.stock = stock;
+        product.sold = sold;
+        product.reviews = reviews;
+        product.category = category;
+        if (newImages.length > 0) {
+            product.images = newImages;
+        }
+
+        await product.save();
+        res.redirect("/products");
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Something went wrong" });
+    }
+};
+
 // delete product
 exports.deleteProduct = async (req, res) => {
     try {
