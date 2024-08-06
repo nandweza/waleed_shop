@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 const homeRoutes = require("./routes/homeRoutes");
 const productRoutes = require("./routes/productRoutes");
 const contactRoutes = require("./routes/contactRoutes");
@@ -20,6 +21,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 //middleware and static files
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 app.use(express.static('public/uploads'));
 app.use(express.static('public/css/style.css'));
