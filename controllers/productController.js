@@ -15,11 +15,13 @@ exports.getProducts = async (req, res) => {
 
         const featuredProducts = await Product.find().sort({ createdAt: -1 }).limit(3);
 
+        const accountProducts = await Product.find().sort({ createdAt: -1 });
+
         if (req.user.isAuthenticated) {
-            res.render('account-products', { products });
+            res.render('account-products', { accountProducts });
         } else {
-            res.render('products', { 
-                products, 
+            res.render('products', {
+                products,
                 featuredProducts,
                 currentPage: page,
                 totalPages: Math.ceil(totalProducts / limit)
